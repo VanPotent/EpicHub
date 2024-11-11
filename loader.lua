@@ -6,7 +6,10 @@ elseif placeId == 13950108612 then --radiant lobby
 
 elseif placeId == 7449423635 or placeId == 4442272183 or placeId == 2753915549 then --Blox fruits seas in order
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/bf-chest"))()
-
+elseif placeId == 9872472334 then --evade
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Evd-main"))()
+    
+    
 else
     print("Game Not Supported :(")
 end
