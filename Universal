@@ -1,0 +1,567 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "EpicHub: Universal", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroEnabled = true, IntroText = ("Open Source :D")})
+
+OrionLib:MakeNotification({
+	Name = "ZGlad's Software Loaded.",
+	Content = "We make no money",
+	Image = "rbxassetid://4483345998",
+	Time = 20
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
+
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+MainTab:AddButton({
+    Name = "Noclip",
+    Callback = function()
+        local Workspace = game:GetService("Workspace")
+	local CoreGui = game:GetService("CoreGui")
+	local Players = game:GetService("Players")
+	local Noclip = Instance.new("ScreenGui")
+	local BG = Instance.new("Frame")
+	local Title = Instance.new("TextLabel")
+	local Toggle = Instance.new("TextButton")
+	local StatusPF = Instance.new("TextLabel")
+	local Status = Instance.new("TextLabel")
+	local Plr = Players.LocalPlayer
+	local Clipon = false
+	
+	Noclip.Name = "Noclip"
+	Noclip.Parent = game.CoreGui
+	
+	BG.Name = "BG"
+	BG.Parent = Noclip
+	BG.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+	BG.BorderColor3 = Color3.new(0.0588235, 0.0588235, 0.0588235)
+	BG.BorderSizePixel = 2
+	BG.Position = UDim2.new(0.149479166, 0, 0.82087779, 0)
+	BG.Size = UDim2.new(0, 210, 0, 127)
+	BG.Active = true
+	BG.Draggable = true
+	
+	Title.Name = "Title"
+	Title.Parent = BG
+	Title.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+	Title.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+	Title.BorderSizePixel = 2
+	Title.Size = UDim2.new(0, 210, 0, 33)
+	Title.Font = Enum.Font.Highway
+	Title.Text = "Noclip"
+	Title.TextColor3 = Color3.new(1, 1, 1)
+	Title.FontSize = Enum.FontSize.Size32
+	Title.TextSize = 30
+	Title.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+	Title.TextStrokeTransparency = 0
+	
+	Toggle.Parent = BG
+	Toggle.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+	Toggle.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+	Toggle.BorderSizePixel = 2
+	Toggle.Position = UDim2.new(0.152380958, 0, 0.374192119, 0)
+	Toggle.Size = UDim2.new(0, 146, 0, 36)
+	Toggle.Font = Enum.Font.Highway
+	Toggle.FontSize = Enum.FontSize.Size28
+	Toggle.Text = "Toggle"
+	Toggle.TextColor3 = Color3.new(1, 1, 1)
+	Toggle.TextSize = 25
+	Toggle.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+	Toggle.TextStrokeTransparency = 0
+	
+	StatusPF.Name = "StatusPF"
+	StatusPF.Parent = BG
+	StatusPF.BackgroundColor3 = Color3.new(1, 1, 1)
+	StatusPF.BackgroundTransparency = 1
+	StatusPF.Position = UDim2.new(0.314285725, 0, 0.708661377, 0)
+	StatusPF.Size = UDim2.new(0, 56, 0, 20)
+	StatusPF.Font = Enum.Font.Highway
+	StatusPF.FontSize = Enum.FontSize.Size24
+	StatusPF.Text = "Status:"
+	StatusPF.TextColor3 = Color3.new(1, 1, 1)
+	StatusPF.TextSize = 20
+	StatusPF.TextStrokeColor3 = Color3.new(0.333333, 0.333333, 0.333333)
+	StatusPF.TextStrokeTransparency = 0
+	StatusPF.TextWrapped = true
+	
+	Status.Name = "Status"
+	Status.Parent = BG
+	Status.BackgroundColor3 = Color3.new(1, 1, 1)
+	Status.BackgroundTransparency = 1
+	Status.Position = UDim2.new(0.580952346, 0, 0.708661377, 0)
+	Status.Size = UDim2.new(0, 56, 0, 20)
+	Status.Font = Enum.Font.Highway
+	Status.FontSize = Enum.FontSize.Size14
+	Status.Text = "off"
+	Status.TextColor3 = Color3.new(0.666667, 0, 0)
+	Status.TextScaled = true
+	Status.TextSize = 14
+	Status.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+	Status.TextWrapped = true
+	Status.TextXAlignment = Enum.TextXAlignment.Left
+	
+	
+	Toggle.MouseButton1Click:connect(function()
+		if Status.Text == "off" then
+			Clipon = true
+			Status.Text = "on"
+			Status.TextColor3 = Color3.new(0,185,0)
+			Stepped = game:GetService("RunService").Stepped:Connect(function()
+				if not Clipon == false then
+					for a, b in pairs(Workspace:GetChildren()) do
+	                if b.Name == Plr.Name then
+	                for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+	                if v:IsA("BasePart") then
+	                v.CanCollide = false
+	                end end end end
+				else
+					Stepped:Disconnect()
+				end
+			end)
+		elseif Status.Text == "on" then
+			Clipon = false
+			Status.Text = "off"
+			Status.TextColor3 = Color3.new(170,0,0)
+		end
+	end)
+    end    
+})
+
+local tpwalking = false
+local RunService = game:GetService("RunService")
+local hb = RunService.Heartbeat
+local speed = 1
+local brightLoop = nil
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+
+
+MainTab:AddButton({
+    Name = "Loop Fullbright",
+    Callback = function()
+        if brightLoop then
+            brightLoop:Disconnect()  --disconnecting da loop
+        end
+        local function brightFunc()
+            Lighting.Brightness = 2
+            Lighting.ClockTime = 14
+            Lighting.FogEnd = 100000
+            Lighting.GlobalShadows = false
+            Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+        end
+
+
+        brightLoop = RunService.RenderStepped:Connect(brightFunc)
+    end
+})
+
+
+
+
+MainTab:AddTextbox({
+    Name = "Speed Sprint  (4 is very fast)",
+    Default = "1",
+    TextDisappear = true,
+    Callback = function(Value)
+        if tonumber(Value) then
+            speed = tonumber(Value)
+            tpwalking = true
+            local player = game:GetService("Players").LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+            local humanoid = character and character:FindFirstChildWhichIsA("Humanoid")
+            
+            if humanoid then
+                RunService:UnbindFromRenderStep("TPWalk")
+
+                RunService:BindToRenderStep("TPWalk", Enum.RenderPriority.Character.Value, function(delta)
+                    if tpwalking and character and humanoid and humanoid.Parent then
+                        if humanoid.MoveDirection.Magnitude > 0 then
+                            character:TranslateBy(humanoid.MoveDirection * speed * delta * 10)
+                        end
+                    end
+                end)
+            end
+        else
+            print("Invalid input. Please enter a number.")
+        end
+    end
+})
+
+MainTab:AddButton({
+    Name = "Stop Sprint",
+    Callback = function()
+        tpwalking = false
+        RunService:UnbindFromRenderStep("TPWalk")
+    end
+})
+
+--- INF JUMP ----
+MainTab:AddButton({
+    Name = "Infinite Jump",
+    Callback = function()
+        local UserInputService = game:GetService("UserInputService")
+        local Players = game:GetService("Players")
+        local speaker = Players.LocalPlayer
+        local infJumpDebounce = false
+        local infJump
+
+        if infJump then infJump:Disconnect() end
+
+        infJump = UserInputService.JumpRequest:Connect(function()
+            if not infJumpDebounce then
+                infJumpDebounce = true
+                speaker.Character:FindFirstChildWhichIsA("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+                wait()
+                infJumpDebounce = false
+            end
+        end)
+    end    
+})
+
+
+
+MainTab:AddButton({
+    Name = "Load Dex",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+    end    
+})
+
+
+MainTab:AddButton({
+    Name = "Load Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end    
+})
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+MainTab:AddButton({
+    Name = "Fling All",
+    Callback = function()
+        -- credit to anthony for this
+	-- Now supports r15 originalsize rescale!
+	
+	local Targets = {"Name here"} -- "All", "Target Name"
+	
+	local Players = game:GetService("Players")
+	local Player = Players.LocalPlayer
+	
+	local AllBool = false
+	
+	local GetPlayer = function(Name)
+	    Name = Name:lower()
+	    if Name == "all" or Name == "others" then
+	        AllBool = true
+	        return
+	    elseif Name == "random" then
+	        local GetPlayers = Players:GetPlayers()
+	        if table.find(GetPlayers,Player) then table.remove(GetPlayers,table.find(GetPlayers,Player)) end
+	        return GetPlayers[math.random(#GetPlayers)]
+	    elseif Name ~= "random" and Name ~= "all" and Name ~= "others" then
+	        for _,x in next, Players:GetPlayers() do
+	            if x ~= Player then
+	                if x.Name:lower():match("^"..Name) then
+	                    return x;
+	                elseif x.DisplayName:lower():match("^"..Name) then
+	                    return x;
+	                end
+	            end
+	        end
+	    else
+	        return
+	    end
+	end
+	
+	local Message = function(_Title, _Text, Time)
+	    game:GetService("StarterGui"):SetCore("SendNotification", {Title = _Title, Text = _Text, Duration = Time})
+	end
+	
+	local SkidFling = function(TargetPlayer)
+	    local Character = Player.Character
+	    local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+	    local RootPart = Humanoid and Humanoid.RootPart
+	
+	    local TCharacter = TargetPlayer.Character
+	    local THumanoid
+	    local TRootPart
+	    local THead
+	    local Accessory
+	    local Handle
+	
+	    if TCharacter:FindFirstChildOfClass("Humanoid") then
+	        THumanoid = TCharacter:FindFirstChildOfClass("Humanoid")
+	    end
+	    if THumanoid and THumanoid.RootPart then
+	        TRootPart = THumanoid.RootPart
+	    end
+	    if TCharacter:FindFirstChild("Head") then
+	        THead = TCharacter.Head
+	    end
+	    if TCharacter:FindFirstChildOfClass("Accessory") then
+	        Accessory = TCharacter:FindFirstChildOfClass("Accessory")
+	    end
+	    if Accessoy and Accessory:FindFirstChild("Handle") then
+	        Handle = Accessory.Handle
+	    end
+	
+	    if Character and Humanoid and RootPart then
+	        if RootPart.Velocity.Magnitude < 50 then
+	            getgenv().OldPos = RootPart.CFrame
+	        end
+	        if THumanoid and THumanoid.Sit and not AllBool then
+	            return Message("Error Occurred", "Targeting is sitting", 5) -- u can remove dis part if u want lol
+	        end
+	        if THead then
+	            workspace.CurrentCamera.CameraSubject = THead
+	        elseif not THead and Handle then
+	            workspace.CurrentCamera.CameraSubject = Handle
+	        elseif THumanoid and TRootPart then
+	            workspace.CurrentCamera.CameraSubject = THumanoid
+	        end
+	        if not TCharacter:FindFirstChildWhichIsA("BasePart") then
+	            return
+	        end
+	        
+	        local FPos = function(BasePart, Pos, Ang)
+	            RootPart.CFrame = CFrame.new(BasePart.Position) * Pos * Ang
+	            Character:SetPrimaryPartCFrame(CFrame.new(BasePart.Position) * Pos * Ang)
+	            RootPart.Velocity = Vector3.new(9e7, 9e7 * 10, 9e7)
+	            RootPart.RotVelocity = Vector3.new(9e8, 9e8, 9e8)
+	        end
+	        
+	        local SFBasePart = function(BasePart)
+	            local TimeToWait = 2
+	            local Time = tick()
+	            local Angle = 0
+	
+	            repeat
+	                if RootPart and THumanoid then
+	                    if BasePart.Velocity.Magnitude < 50 then
+	                        Angle = Angle + 100
+	
+	                        FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle),0 ,0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(2.25, 1.5, -2.25) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(-2.25, -1.5, 2.25) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection,CFrame.Angles(math.rad(Angle), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection,CFrame.Angles(math.rad(Angle), 0, 0))
+	                        task.wait()
+	                    else
+	                        FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, -THumanoid.WalkSpeed), CFrame.Angles(0, 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))
+	                        task.wait()
+	                        
+	                        FPos(BasePart, CFrame.new(0, 1.5, TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(math.rad(90), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, -TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(0, 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, 1.5, TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(math.rad(90), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(math.rad(90), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(0, 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5 ,0), CFrame.Angles(math.rad(-90), 0, 0))
+	                        task.wait()
+	
+	                        FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(0, 0, 0))
+	                        task.wait()
+	                    end
+	                else
+	                    break
+	                end
+	            until BasePart.Velocity.Magnitude > 500 or BasePart.Parent ~= TargetPlayer.Character or TargetPlayer.Parent ~= Players or not TargetPlayer.Character == TCharacter or THumanoid.Sit or Humanoid.Health <= 0 or tick() > Time + TimeToWait
+	        end
+	        
+	        workspace.FallenPartsDestroyHeight = 0/0
+	        
+	        local BV = Instance.new("BodyVelocity")
+	        BV.Name = "EpixVel"
+	        BV.Parent = RootPart
+	        BV.Velocity = Vector3.new(9e8, 9e8, 9e8)
+	        BV.MaxForce = Vector3.new(1/0, 1/0, 1/0)
+	        
+	        Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, false)
+	        
+	        if TRootPart and THead then
+	            if (TRootPart.CFrame.p - THead.CFrame.p).Magnitude > 5 then
+	                SFBasePart(THead)
+	            else
+	                SFBasePart(TRootPart)
+	            end
+	        elseif TRootPart and not THead then
+	            SFBasePart(TRootPart)
+	        elseif not TRootPart and THead then
+	            SFBasePart(THead)
+	        elseif not TRootPart and not THead and Accessory and Handle then
+	            SFBasePart(Handle)
+	        else
+	            return Message("Error Occurred", "Target is missing everything", 5)
+	        end
+	        
+	        BV:Destroy()
+	        Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, true)
+	        workspace.CurrentCamera.CameraSubject = Humanoid
+	        
+	        repeat
+	            RootPart.CFrame = getgenv().OldPos * CFrame.new(0, .5, 0)
+	            Character:SetPrimaryPartCFrame(getgenv().OldPos * CFrame.new(0, .5, 0))
+	            Humanoid:ChangeState("GettingUp")
+	            table.foreach(Character:GetChildren(), function(_, x)
+	                if x:IsA("BasePart") then
+	                    x.Velocity, x.RotVelocity = Vector3.new(), Vector3.new()
+	                end
+	            end)
+	            task.wait()
+	        until (RootPart.Position - getgenv().OldPos.p).Magnitude < 25
+	        workspace.FallenPartsDestroyHeight = getgenv().FPDH
+	    else
+	        return Message("Error Occurred", "Random error", 5)
+	    end
+	end
+	
+	if not Welcome then Message("Script by AnthonyIsntHere", "Enjoy!", 5) end
+	getgenv().Welcome = true
+	if Targets[1] then for _,x in next, Targets do GetPlayer(x) end else return end
+	
+	if AllBool then
+	    for _,x in next, Players:GetPlayers() do
+	        SkidFling(x)
+	    end
+	end
+	
+	for _,x in next, Targets do
+	    if GetPlayer(x) and GetPlayer(x) ~= Player then
+	        if GetPlayer(x).UserId ~= 123456789 then
+	            local TPlayer = GetPlayer(x)
+	            if TPlayer then
+	                SkidFling(TPlayer)
+	            end
+	        else
+	            Message("Error Occurred", "This user is whitelisted! (Owner)", 5)
+	        end
+	    elseif not GetPlayer(x) and not AllBool then
+	        Message("Error Occurred", "Username Invalid", 5)
+	    end
+	end
+    end    
+})
+
+
+MainTab:AddButton({
+    Name = "Self Fling (e to fling and q to go back)",
+    Callback = function()
+        -- FE SELF FLING REAL
+	-- used for trolling example: bang someone and when they turn around and look at you, FLING YOURSELF
+	-- hotkey dont have to be capitals lol
+	-- press e to fling urself and q to go back where u previously were
+	
+	local Config = {
+	    FlingHotkey = "E",
+	    TpBackHotkey = "Q",
+	    Permanent = false
+	}
+	
+	local Players = game:GetService("Players")
+	local UserInputService = game:GetService("UserInputService")
+	
+	local Player = Players.LocalPlayer
+	
+	local Character = Player.Character
+	local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+	local RootPart = Humanoid.RootPart
+	
+	for _, x in next, Config do
+	    if type(x) == "string" then
+	        Config[_] = x:upper()
+	    end
+	end
+	
+	local CurrentPos
+	local Connection
+	
+	Connection = UserInputService.InputBegan:Connect(function(Key, Typing)
+	    if not Typing then
+	        if Key.KeyCode == Enum.KeyCode[Config.FlingHotkey] then
+	            if Config.Permanent then
+	                if Player.Character.Humanoid.RootPart.Velocity.Magnitude <= 20 then
+	                    CurrentPos = Player.Character.Humanoid.RootPart.CFrame
+	                end
+	                Player.Character.Humanoid.RootPart.Velocity = (Player.Character.Humanoid.RootPart.Velocity + Vector3.new(0, 50, 0)) + (Player.Character.Humanoid.RootPart.CFrame.LookVector * 100)
+	                Player.Character.Humanoid.RootPart.RotVelocity = (Player.Character.Humanoid.RootPart.RotVelocity + Vector3.new(math.random(200, 300), math.random(-200, 300), math.random(200, 300))) 
+	            else
+	                if RootPart.Velocity.Magnitude <= 20 then
+	                    CurrentPos = RootPart.CFrame
+	                end
+	                RootPart.Velocity = (RootPart.Velocity + Vector3.new(0, 50, 0)) + (RootPart.CFrame.LookVector * 100)
+	                RootPart.RotVelocity = (RootPart.RotVelocity + Vector3.new(math.random(200, 300), math.random(-200, 300), math.random(200, 300)))
+	            end
+	        elseif Key.KeyCode == Enum.KeyCode[Config.TpBackHotkey] then
+	            if CurrentPos then
+	                if Config.Permanent then
+	                    if Player.Character.Humanoid.RootPart.Velocity.Magnitude >= 20 then
+	                        Player.Character.Humanoid.RootPart.Velocity = Vector3.new()
+	                        Player.Character.Humanoid.RootPart.RotVelocity = Vector3.new()
+	                        Player.Character.Humanoid.RootPart.CFrame = CurrentPos
+	                        Player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+	                    end
+	                else
+	                    if RootPart.Velocity.Magnitude >= 20 then
+	                        RootPart.Velocity = Vector3.new()
+	                        RootPart.RotVelocity = Vector3.new()
+	                        RootPart.CFrame = CurrentPos
+	                        Humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+	                    end
+	                end
+	            end
+	        end
+	    end
+	end)
+	
+	if not Config.Permanent then
+	    Humanoid.Died:Connect(function()
+	        Connection:Disconnect()
+	    end)
+	end
+    end    
+})
+
+
+
+
+MainTab:AddParagraph("Zglad(ius) was here")
+MainTab:AddParagraph("Game not Supported","Unforunately, this game is not supported by epic hub. Here are some universal features.")
+MainTab:AddParagraph("Discord.gg/CUhe8VjaU3  for suggestions on game, and to buy premium")
