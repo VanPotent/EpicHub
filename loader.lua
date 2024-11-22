@@ -14,4 +14,5 @@ elseif placeId == 91282350711571 then  -- mad city chapter 1
 
 else
     print("Game Not Supported :(")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"))()
 end
