@@ -11,7 +11,8 @@ elseif placeId == 128743078333456 then --wacky worlds
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/ww-main"))()
 elseif placeId == 91282350711571 then  -- mad city chapter 1
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/my/Gui.lua"))()
-
+elseif placeId == 16732694052 then --fisch
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Fch.lua"))()
 else
     print("Game Not Supported :(")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"))()
