@@ -13,6 +13,8 @@ elseif placeId == 91282350711571 then  -- mad city chapter 1
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/my/Gui.lua"))()
 elseif placeId == 16732694052 then --fisch
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Fch.lua"))()
+elseif placeId == 3214114884 then --flag wars
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/FlWr.lua"))()
 else
     print("Game Not Supported :(")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"))()
