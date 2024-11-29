@@ -17,6 +17,8 @@ elseif placeId == 3214114884 then --flag wars
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/FlWr.lua"))()
 elseif placeId == 9872472334 then --evade
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Evd-main"))()
+elseif placeId == 3956818381 then --ninja legends
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/NL/MAIN.lua"))()
 else
     print("Game Not Supported :(")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"))()
