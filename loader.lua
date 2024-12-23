@@ -21,6 +21,8 @@ elseif placeId == 3956818381 then --ninja legends
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/NL/MAIN.lua"))()
 elseif placeId == 189707 then --nds
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/nds.lua"))()
+elseif placeId == 142823291 then --mm
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/MM/Main'),true))()
 else
     print("Game Not Supported :(")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"))()
