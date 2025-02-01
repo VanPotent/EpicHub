@@ -27,6 +27,8 @@ elseif placeId == 92368121301924 then --mingle
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/mn'),true))()
 elseif placeId == 16993432698 then --impossible sg glass bridge
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/isggb.lua'),true))()
+elseif placeId == 16552821455 then --dandy's world
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/dandy'),true))()
 else
 
     print("Game Not Supported :(")
