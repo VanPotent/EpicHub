@@ -29,6 +29,8 @@ elseif placeId == 16993432698 then --impossible sg glass bridge
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/isggb.lua'),true))()
 elseif placeId == 16552821455 then --dandy's world
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/dandy'),true))()
+elseif placeId == 101536449876647 then -- a normal train
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/NormalT'),true))()
 else
 
     print("Game Not Supported :(")
