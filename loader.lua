@@ -1,3 +1,4 @@
+print("By using this script, you agree to the collection of limited, non-sensitive session data, which helps improve features, enhance performance, and support future development. We respect your privacy and appreciate your trust.")
 local placeId = game.PlaceId
 loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/wh.lua"))() -- game loader
 if placeId == 14702923685 or placeId == 16335600896 or placeId ==16335600116 then --radiant main
