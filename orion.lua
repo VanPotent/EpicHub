@@ -1,5 +1,4 @@
-
-
+-- not made by me, using this for archive purposes. all rights go to original author
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
