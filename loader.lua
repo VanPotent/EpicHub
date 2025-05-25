@@ -35,6 +35,8 @@ elseif placeId == 101536449876647 then -- a normal train
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/NormalT'),true))()
 elseif placeId == 116295913939017 then --plinko rng game
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/plinkrng'),true))()
+elseif placeId == 126884695634066 then
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/gg'),true))()
 else
 
     print("Game Not Supported :(")
