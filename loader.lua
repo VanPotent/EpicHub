@@ -8,7 +8,7 @@ elseif placeId == 13950108612 then --radiant lobby
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/rad-lob"))()
 
 elseif placeId == 7449423635 or placeId == 4442272183 or placeId == 2753915549 then --Blox fruits seas in order sorry for now
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/BFGUI"))()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/indexeduu/BF-NewVer/refs/heads/main/V3New.lua"))() -- thanks for volcano hub all credit to them lol
 elseif placeId == 128743078333456 then --wacky worlds
     loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/ww-main"))()
 elseif placeId == 91282350711571 then  -- mad city chapter 1
