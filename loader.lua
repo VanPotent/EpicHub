@@ -42,5 +42,5 @@ elseif placeId == 126509999114328 then
 else
 
     print("Game Not Supported :(")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/Universal"),true)()
 end
