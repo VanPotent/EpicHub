@@ -37,6 +37,8 @@ elseif placeId == 116295913939017 then --plinko rng game
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/plinkrng'),true))()
 elseif placeId == 126884695634066 then
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/gg'),true))()
+elseif placeId == 126509999114328 then
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/VanPotent/EpicHub/refs/heads/main/99.luau'),true))()
 else
 
     print("Game Not Supported :(")
